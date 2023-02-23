@@ -1,6 +1,6 @@
 import './style.css';
 
-const todoContainer = document.querySelector('.todo-container');
+const todoContainer = document.querySelector('.list-container');
 
 const myTodo = [
   {
@@ -13,8 +13,18 @@ const myTodo = [
     completed: false,
     index: 1,
   },
+  {
+    description: 'todo 3',
+    completed: false,
+    index: 2,
+  },
+  {
+    description: 'todo 4',
+    completed: false,
+    index: 3,
+  },
 ];
 
 window.onload = () => {
-  todoContainer.innerHTML = myTodo.map((todos) => `<li>${todos.description} ${todos.completed} ${todos.index}</li>`).join('');
+  todoContainer.innerHTML = myTodo.map((todos) => `<li class="list"><input type="checkbox"/><span class="todo-content">${todos.description} ${todos.completed} ${todos.index}</span><span class="icon">&#8230;</span></li>`).join('');
 };
