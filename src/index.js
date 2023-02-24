@@ -3,6 +3,7 @@ import createData from './modules/createData.js';
 import readDataFromDb from './modules/readData.js';
 import saveToLocalStorage from './modules/saveToDb.js';
 import renderData from './modules/render.js';
+import editData from './modules/editData.js';
 
 class TodoApp {
   constructor() {
@@ -23,31 +24,25 @@ class TodoApp {
     createData(this.todoCollection);
   }
 
+  removeData(item) {
+    this.todoCollection = this.todoCollection.filter((todo, index) => item !== index);
+  }
+
   ShowData() {
     this.todoContainer.innerHTML = this.todoCollection.map(
       (todo) => renderData(todo.description),
     ).join('');
-    // for(let i = )
 
-    const lists = document.querySelectorAll('list');
-    for (let i = 0; i < lists.length; i += 1) {
-      lists[i].addEventListener('click', () => {
-        alert('hello');
+    const trashIcon = document.querySelectorAll('.trash');
+
+    for (let i = 0; i < trashIcon.length; i += 1) {
+      trashIcon[i].addEventListener('click', () => {
+        this.removeData(i);
+        saveToLocalStorage(this.todoCollection);
+        this.ShowData();
       });
     }
-    
-
-
-
-
-    // const deleteBtn = document.querySelectorAll('.remove');
-    // for (let i = 0; i < deleteBtn.length; i += 1) {
-    //   deleteBtn[i].addEventListener('click', () => {
-    //     this.removeBook(i);
-    //     saveToLocalStorage(this.bookCollection);
-    //     this.ShowBooks();
-    //   });
-    // }
+    editData(this.todoCollection);
   }
 }
 

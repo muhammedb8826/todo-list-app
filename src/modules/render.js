@@ -1,3 +1,9 @@
-const renderData = (description) => `<li class="list"><input type="checkbox"/><span class="todo-content">${description}</span><span class="icon">&#8230;</span></li>`;
+const renderData = (description) => `<li class="list">
+        <input type="checkbox"/>
+        <input type="text" class="todo-content" value="${description}"/>
+        <button class="trash-and-drag-icon">
+        <i class='trash fa-solid fa-trash-can'></i><i class='drag fa fa-ellipsis-v'></i>
+        </button>
+    </li>`;
 
 export default renderData;
