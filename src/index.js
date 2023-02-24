@@ -4,6 +4,7 @@ import readDataFromDb from './modules/readData.js';
 import saveToLocalStorage from './modules/saveToDb.js';
 import renderData from './modules/render.js';
 import editData from './modules/editData.js';
+import getElementIndex from './modules/getIndex.js';
 
 class TodoApp {
   constructor() {
@@ -43,6 +44,7 @@ class TodoApp {
       });
     }
     editData(this.todoCollection);
+    getElementIndex(this.todoCollection, this.todoCollection.length);
   }
 }
 
