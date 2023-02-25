@@ -1,13 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>My Todo List | Created with webpack</title>
-<script defer src="index.bundle.js"></script></head>
-<body>
-    <ul class="todo-container">
-    </ul>
-</body>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <script defer src="runtime.bundle.js"></script><script defer src="index.bundle.js"></script></head>
+  <body>
+    <main class="main">
+      <section class="container">
+        <div class="demo">
+          <p class="demo-text">Today's To Do</p>
+          <span class="notification">
+            <i class='fa fa-refresh'></i>
+            <span class="badge"></span>
+          </span>
+        </div>
+        <div class="list-and-input-container">
+          <div class="input-and-icon">
+            <input
+              type="text"
+              placeholder="Add to your list..."
+              id="todoInput"
+            />
+            <span class="icon">&crarr;</span>
+          </div>
+          <ul class="list-container"></ul>
+        </div>
+        <button class="clear-completed">Clear all completed</button>
+      </section>
+    </main>
+  </body>
 </html>
