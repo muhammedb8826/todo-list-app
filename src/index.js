@@ -1,30 +1,54 @@
 import './style.css';
+import createData from './modules/createData.js';
+import readDataFromDb from './modules/readData.js';
+import saveToLocalStorage from './modules/saveToDb.js';
+import renderData from './modules/render.js';
+import editData from './modules/editData.js';
+import getElementIndex from './modules/getIndex.js';
 
-const todoContainer = document.querySelector('.list-container');
+class TodoApp {
+  constructor() {
+    this.todoCollection = readDataFromDb();
+    this.userInput = document.getElementById('todoInput');
+    this.todoContainer = document.querySelector('.list-container');
+    this.userInput.addEventListener('keypress', (event) => {
+      if (event.key === 'Enter') {
+        event.preventDefault();
+        this.CreateData();
+        saveToLocalStorage(this.todoCollection);
+        this.ShowData();
+      }
+    });
+  }
 
-const myTodo = [
-  {
-    description: 'todo 1',
-    completed: false,
-    index: 0,
-  },
-  {
-    description: 'todo 2',
-    completed: false,
-    index: 1,
-  },
-  {
-    description: 'todo 3',
-    completed: false,
-    index: 2,
-  },
-  {
-    description: 'todo 4',
-    completed: false,
-    index: 3,
-  },
-];
+  CreateData() {
+    createData(this.todoCollection);
+  }
+
+  removeData(item) {
+    this.todoCollection = this.todoCollection.filter((todo, index) => item !== index);
+  }
+
+  ShowData() {
+    this.todoContainer.innerHTML = this.todoCollection.map(
+      (todo) => renderData(todo.description),
+    ).join('');
+
+    const trashIcon = document.querySelectorAll('.trash');
+
+    for (let i = 0; i < trashIcon.length; i += 1) {
+      trashIcon[i].addEventListener('click', () => {
+        this.removeData(i);
+        saveToLocalStorage(this.todoCollection);
+        this.ShowData();
+      });
+    }
+    editData(this.todoCollection);
+    getElementIndex(this.todoCollection, this.todoCollection.length);
+  }
+}
 
 window.onload = () => {
-  todoContainer.innerHTML = myTodo.map((todos) => `<li class="list"><input type="checkbox"/><span class="todo-content">${todos.description} ${todos.completed} ${todos.index}</span><span class="icon">&#8230;</span></li>`).join('');
+  const t = new TodoApp();
+  t.ShowData();
 };
