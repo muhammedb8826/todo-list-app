@@ -126,7 +126,7 @@ After you're finished please remove all the comments and instructions!
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
-- to be added later
+- you can see the project live [using this link](https://muhammedb8826.github.io/todo-list-app/dist/)
 
 > Link to github repository.
 
