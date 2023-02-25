@@ -5,6 +5,8 @@ import saveToLocalStorage from './modules/saveToDb.js';
 import renderData from './modules/render.js';
 import editData from './modules/editData.js';
 import getElementIndex from './modules/getIndex.js';
+import notify from './modules/notification.js';
+import todoStatus from './modules/status.js';
 
 class TodoApp {
   constructor() {
@@ -45,6 +47,15 @@ class TodoApp {
     }
     editData(this.todoCollection);
     getElementIndex(this.todoCollection, this.todoCollection.length);
+    const clearCompletedBtn = document.querySelector('.clear-completed');
+    clearCompletedBtn.addEventListener('click', () => {
+      this.todoCollection = this.todoCollection.filter((task) => !task.completed);
+      saveToLocalStorage(this.todoCollection);
+      this.ShowData();
+    });
+
+    todoStatus(this.todoCollection);
+    notify(this.todoCollection.length);
   }
 }
 
