@@ -6,12 +6,17 @@ const editData = (dataArray) => {
   const dragIcon = document.querySelectorAll('.drag');
   const trashIcon = document.querySelectorAll('.trash');
   for (let i = 0; i < todoLists.length; i += 1) {
-    todoLists[i].addEventListener('click', () => {
+    todoContent[i].addEventListener('click', (e) => {
+      e.stopImmediatePropagation();
+      e.stopPropagation();
+
       todoContent[i].focus();
       todoLists[i].classList.add('active');
       trashIcon[i].classList.add('active');
       dragIcon[i].style.display = 'none';
-      todoContent[i].addEventListener('mouseover', () => {
+
+      todoContent[i].addEventListener('mouseover', (e) => {
+        e.stopPropagation();
         trashIcon[i].classList.add('active');
         dragIcon[i].style.display = 'none';
       });
@@ -23,6 +28,7 @@ const editData = (dataArray) => {
         dragIcon[i].style.display = 'block';
         saveToLocalStorage(dataArray);
       });
+
       todoContent[i].addEventListener('keypress', (event) => {
         if (event.key === 'Enter') {
           dataArray[i].description = todoContent[i].value;
