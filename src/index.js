@@ -28,7 +28,7 @@ class TodoApp {
   }
 
   removeData(item) {
-    this.todoCollection = this.todoCollection.filter((todo, index) => item !== index);
+    this.todoCollection = this.todoCollection.filter((todos, index) => item !== index);
   }
 
   ShowData() {
