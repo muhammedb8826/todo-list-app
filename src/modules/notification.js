@@ -1,5 +1,5 @@
-import readDataFromDb from "./readData.js";
-import saveToLocalStorage from "./saveToDb.js";
+import readDataFromDb from './readData.js';
+import saveToLocalStorage from './saveToDb.js';
 
 const notify = () => {
   const dataFromDb = readDataFromDb();
@@ -11,17 +11,15 @@ const notify = () => {
   for (let i = 0; i < check.length; i += 1) {
     if (check[i].completed) {
       checkStatusInput[i].checked = true;
-      todoContent[i].style.textDecoration = 'line-through';
+      todoContent[i].classList.add('completed');
     }
-    if(!check[i].completed){
+    if (!check[i].completed) {
       checkStatusInput[i].checked = false;
-      todoContent[i].style.textDecoration = 'none';
-      
+      todoContent[i].classList.remove('completed');
     }
-     
   }
-  saveToLocalStorage(dataFromDb);
   notificationIcon.innerHTML = filterednotification.length;
+  saveToLocalStorage(dataFromDb);
 };
 
 export default notify;

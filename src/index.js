@@ -54,13 +54,13 @@ class TodoApp {
       saveToLocalStorage(this.todoCollection);
       this.ShowData();
     });
-
-    todoStatus(this.todoCollection);
     notify();
+    todoStatus(this.todoCollection);
   }
 }
 
 window.onload = () => {
   const t = new TodoApp();
   t.ShowData();
+  notify();
 };
