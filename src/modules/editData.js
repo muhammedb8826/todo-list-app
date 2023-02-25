@@ -9,6 +9,7 @@ const editData = (dataArray) => {
     todoContent[i].addEventListener('click', (e) => {
       e.stopImmediatePropagation();
       e.stopPropagation();
+
       todoContent[i].focus();
       todoLists[i].classList.add('active');
       trashIcon[i].classList.add('active');

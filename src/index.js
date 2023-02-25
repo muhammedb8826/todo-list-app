@@ -47,6 +47,7 @@ class TodoApp {
     }
     editData(this.todoCollection);
     getElementIndex(this.todoCollection, this.todoCollection.length);
+
     const clearCompletedBtn = document.querySelector('.clear-completed');
     clearCompletedBtn.addEventListener('click', () => {
       this.todoCollection = this.todoCollection.filter((task) => !task.completed);
@@ -55,7 +56,7 @@ class TodoApp {
     });
 
     todoStatus(this.todoCollection);
-    notify(this.todoCollection.length);
+    notify();
   }
 }
 
