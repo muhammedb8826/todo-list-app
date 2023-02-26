@@ -1,4 +1,5 @@
 import saveToLocalStorage from './saveToDb.js';
+
 const notificationIcon = document.querySelector('.badge');
 const todoStatus = (todo) => {
   const checkStatusInput = document.querySelectorAll('.todo-status');
@@ -16,7 +17,6 @@ const todoStatus = (todo) => {
       todoContent[i].classList.remove('completed');
     }
   }
-
 
   for (let i = 0; i < todo.length; i += 1) {
     checkStatusInput[i].addEventListener('change', (e) => {
