@@ -4,11 +4,9 @@ import readDataFromDb from './modules/readData.js';
 import saveToLocalStorage from './modules/saveToDb.js';
 import renderData from './modules/render.js';
 import editData from './modules/editData.js';
-import getElementIndex from './modules/getIndex.js';
-import notify from './modules/notification.js';
 import todoStatus from './modules/status.js';
 
-class TodoApp {
+export default class TodoApp {
   constructor() {
     this.todoCollection = readDataFromDb();
     this.userInput = document.getElementById('todoInput');
@@ -29,6 +27,7 @@ class TodoApp {
 
   removeData(item) {
     this.todoCollection = this.todoCollection.filter((todos, index) => item !== index);
+    this.todoCollection = this.todoCollection.map((todo, index) => ({ ...todo, index: index + 1 }));
   }
 
   ShowData() {
@@ -45,16 +44,14 @@ class TodoApp {
         this.ShowData();
       });
     }
-    editData(this.todoCollection);
-    getElementIndex(this.todoCollection, this.todoCollection.length);
 
+    editData(this.todoCollection);
     const clearCompletedBtn = document.querySelector('.clear-completed');
     clearCompletedBtn.addEventListener('click', () => {
       this.todoCollection = this.todoCollection.filter((task) => !task.completed);
       saveToLocalStorage(this.todoCollection);
       this.ShowData();
     });
-    notify();
     todoStatus(this.todoCollection);
   }
 }
@@ -62,5 +59,4 @@ class TodoApp {
 window.onload = () => {
   const t = new TodoApp();
   t.ShowData();
-  notify();
 };

@@ -1,9 +1,12 @@
+import saveToLocalStorage from './saveToDb.js';
+
 const userInput = document.getElementById('todoInput');
 const createData = (todoCollection) => {
-  const todo = { description: userInput.value, completed: false, index: todoCollection.length };
+  const todo = { description: userInput.value, completed: false, index: todoCollection.length + 1 };
   todoCollection.push(todo);
   userInput.value = '';
   userInput.focus();
+  saveToLocalStorage(todoCollection);
 };
 
 export default createData;

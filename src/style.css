@@ -18,7 +18,7 @@ body {
 }
 
 .main {
-  width: 75%;
+  width: 50%;
   padding: 3rem;
   max-height: 75vh;
   overflow: hidden;
@@ -88,6 +88,7 @@ body {
 }
 
 .list-container .list {
+  position: relative;
   list-style: none;
   border-bottom: #ebebeb 2px solid;
   display: flex;
@@ -107,28 +108,6 @@ body {
   height: 1.1rem;
 }
 
-.list-container .list .trash-and-drag-icon {
-  font-weight: 600;
-  color: #bababa;
-  outline: none;
-  border: none;
-  margin-right: 1rem;
-  font-size: 1.1rem;
-}
-
-.list-container .list .trash-and-drag-icon .trash {
-  display: none;
-}
-
-.list-container .list .trash-and-drag-icon .trash:hover {
-  cursor: pointer;
-  color: #545862;
-}
-
-.list-container .list .trash-and-drag-icon .trash.active {
-  display: block;
-}
-
 .list-container .list .todo-content {
   padding-inline: 1rem;
   width: 100%;
@@ -138,6 +117,39 @@ body {
 
 .list-container .list .todo-content.completed {
   text-decoration: line-through;
+}
+
+.list-container .list .drag-icon {
+  margin-right: 0.5rem;
+  width: 2rem;
+  height: 100%;
+  background-color: transparent;
+  border: none;
+  color: #bababa;
+}
+
+.list-container .list .drag-icon:hover {
+  color: #545862;
+  cursor: move;
+}
+
+.list-container .list .trash-icon {
+  display: none;
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  background-color: transparent;
+  border: none;
+  color: #bababa;
+}
+
+.list-container .list .trash-icon:hover {
+  color: #545862;
+  cursor: pointer;
 }
 
 input[type="text"] {
@@ -164,4 +176,14 @@ input[type="text"] {
 .clear-completed:hover {
   color: #545862;
   cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .main {
+    width: 100%;
+    padding: 1rem;
+    max-height: 75vh;
+    overflow: hidden;
+    overflow-y: scroll;
+  }
 }
