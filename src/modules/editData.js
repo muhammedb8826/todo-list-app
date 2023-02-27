@@ -6,28 +6,31 @@ const editData = (dataArray) => {
   const dragIcon = document.querySelectorAll('.drag-icon');
   const trashIcon = document.querySelectorAll('.trash-icon');
 
-todoLists.forEach(list=>list.addEventListener('click',()=>{
-  console.log('I am list item');
- 
-}))
+  todoContent.forEach((input, i) => input.addEventListener('click', (e) => {
+    e.stopImmediatePropagation();
+    todoLists[i].classList.add('active');
+    todoLists[i].focus();
+    trashIcon[i].style.display = 'flex';
+    dragIcon[i].style.display = 'none';
+    todoContent[i].focus();
+  }));
 
-todoContent.forEach((input,i)=>input.addEventListener('click',(e)=>{
-  console.log('I am input');
-  e.stopImmediatePropagation();
-  todoLists[i].classList.add('active')
-  trashIcon[i].classList.add('active');
-  dragIcon[i].style.display = 'none';
-  trashIcon.forEach((trash)=>trash.addEventListener('click',()=>{
-    console.log('trash clicked');
-  }))
-}))
+  todoContent.forEach((todo, i) => todo.addEventListener('keypress', (e) => {
+    if (e.key === 'Enter') {
+      dataArray[i].description = todoContent[i].value;
+      saveToLocalStorage(dataArray);
+      todoContent[i].blur();
+      todoLists[i].classList.remove('active');
+      trashIcon[i].style.display = 'none';
+      dragIcon[i].style.display = 'block';
+    }
+  }));
 
-// todoContent.forEach((input,i)=>input.addEventListener('focusout',(e)=>{
-//   e.stopImmediatePropagation();
-//   trashIcon[i].classList.remove('active');
-//   dragIcon[i].style.display = 'flex';
-// }))
-
- 
+  todoLists.forEach((trash, i) => trash.addEventListener('mouseleave', () => {
+    todoContent[i].blur();
+    todoLists[i].classList.remove('active');
+    trashIcon[i].style.display = 'none';
+    dragIcon[i].style.display = 'block';
+  }));
 };
 export default editData;

@@ -133,8 +133,7 @@ body {
   cursor: move;
 }
 
-
-.trash-icon .list .trash-icon {
+.list-container .list .trash-icon {
   display: none;
   position: absolute;
   top: 0;
@@ -148,14 +147,13 @@ body {
   color: #bababa;
 }
 
-.list-container .list .trash-icon:hover{
+.list-container .list .trash-icon:hover {
   color: #545862;
   cursor: pointer;
 }
 
-
 input[type="text"] {
-  border: 1px solid red;
+  border: none;
   font-style: italic;
   color: #545862;
   outline: none;
