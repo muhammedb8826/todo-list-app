@@ -88,6 +88,7 @@ body {
 }
 
 .list-container .list {
+  position: relative;
   list-style: none;
   border-bottom: #ebebeb 2px solid;
   display: flex;
@@ -107,53 +108,6 @@ body {
   height: 1.1rem;
 }
 
-.list-container .list .trash-and-drag-icon {
-  font-weight: 600;
-  color: #bababa;
-  background-color: transparent;
-  outline: none;
-  border: none;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-right: 1rem;
-  font-size: 1.1rem;
-  border: 1px solid red;
-  width: 2rem;
-  height: 100%;
-  cursor: pointer;
-}
-
-.list-container .list .trash-and-drag-icon .trash {
-  display: none;
-}
-
-.list-container .list .trash-and-drag-icon .drag {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.list-container .list .trash-and-drag-icon .drag:hover {
-  cursor: move;
-  color: #545862;
-}
-
-.list-container .list .trash-and-drag-icon .trash.active {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.list-container .list .trash-and-drag-icon .trash:hover {
-  cursor: pointer;
-  color: #545862;
-}
-
 .list-container .list .todo-content {
   padding-inline: 1rem;
   width: 100%;
@@ -165,8 +119,43 @@ body {
   text-decoration: line-through;
 }
 
-input[type="text"] {
+.list-container .list .drag-icon {
+  margin-right: 0.5rem;
+  width: 2rem;
+  height: 100%;
+  background-color: transparent;
   border: none;
+  color: #bababa;
+}
+
+.list-container .list .drag-icon:hover {
+  color: #545862;
+  cursor: move;
+}
+
+
+.trash-icon .list .trash-icon {
+  display: none;
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  background-color: transparent;
+  border: none;
+  color: #bababa;
+}
+
+.list-container .list .trash-icon:hover{
+  color: #545862;
+  cursor: pointer;
+}
+
+
+input[type="text"] {
+  border: 1px solid red;
   font-style: italic;
   color: #545862;
   outline: none;
