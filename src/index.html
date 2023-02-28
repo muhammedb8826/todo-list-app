@@ -8,11 +8,12 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   </head>
   <body>
+    <section class="worksTodo"></section>
     <main class="main">
       <section class="container">
         <div class="demo">
           <p class="demo-text">Today's To Do</p>
-          <span class="notification">
+          <span class="refresh-icon">
             <i class='fa fa-refresh'></i>
             <span class="badge"></span>
           </span>
@@ -23,8 +24,9 @@
               type="text"
               placeholder="Add to your list..."
               id="todoInput"
+              autofocus
             />
-            <span class="icon">&crarr;</span>
+            <span class="icon"><i class='fa-solid fa-arrow-turn-down'></i></i></span>
           </div>
           <ul class="list-container"></ul>
         </div>
