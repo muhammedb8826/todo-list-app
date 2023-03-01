@@ -25,6 +25,7 @@ const editData = (dataArray) => {
         todoLists[i].classList.remove('active');
         trashIcon[i].style.display = 'none';
         dragIcon[i].style.display = 'block';
+        todoContent[i].style.cursor = 'context-menu';
       }
     }
   }));
