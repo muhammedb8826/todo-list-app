@@ -1,11 +1,11 @@
 import saveToLocalStorage from './saveToDb.js';
 
-const notificationIcon = document.querySelector('.worksTodo');
+const notificationIcon = document.querySelector('.badge');
 const todoStatus = (todo) => {
   const checkStatusInput = document.querySelectorAll('.todo-status');
   const todoContent = document.querySelectorAll('.todo-content');
   const filterednotification = todo.filter((data) => !data.completed);
-  notificationIcon.innerHTML = filterednotification.length ? `You have ${filterednotification.length} works todo` : '';
+  notificationIcon.innerHTML = filterednotification.length;
 
   for (let i = 0; i < todo.length; i += 1) {
     if (todo[i].completed) {
@@ -25,7 +25,7 @@ const todoStatus = (todo) => {
         checkStatusInput[i].checked = true;
         todoContent[i].classList.add('completed');
         const filterednotification = todo.filter((data) => !data.completed);
-        notificationIcon.innerHTML = filterednotification.length ? `You have ${filterednotification.length} works todo` : '';
+        notificationIcon.innerHTML = filterednotification.length;
         saveToLocalStorage(todo);
       }
       if (!e.target.checked) {
@@ -34,7 +34,7 @@ const todoStatus = (todo) => {
         checkStatusInput[i].checked = false;
         todoContent[i].classList.remove('completed');
         const filterednotification = todo.filter((data) => !data.completed);
-        notificationIcon.innerHTML = filterednotification.length ? `You have ${filterednotification.length} works todo` : '';
+        notificationIcon.innerHTML = filterednotification.length;
         saveToLocalStorage(todo);
       }
     });

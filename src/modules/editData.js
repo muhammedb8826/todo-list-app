@@ -11,12 +11,15 @@ const editData = (dataArray) => {
   const dragIcon = document.querySelectorAll('.drag-icon');
   const trashIcon = document.querySelectorAll('.trash-icon');
 
-  todoLists.forEach((input, item) => input.addEventListener('click', (e) => {
+  todoContent.forEach((input, item) => input.addEventListener('click', (e) => {
     e.stopImmediatePropagation();
+    dataArray[item].description = todoContent[item].value;
+    saveToLocalStorage(dataArray);
     todoLists[item].classList.add('active');
     trashIcon[item].style.display = 'flex';
     dragIcon[item].style.display = 'none';
     todoContent[item].focus();
+    todoContent[item].style.cursor = 'text';
     for (let i = 0; i < todoLists.length; i += 1) {
       if (item !== i) {
         todoLists[i].classList.remove('active');
@@ -35,6 +38,10 @@ const editData = (dataArray) => {
       trashIcon[i].style.display = 'none';
       dragIcon[i].style.display = 'block';
     }
+  }));
+  todoContent.forEach((todo, i) => todo.addEventListener('focusout', () => {
+    dataArray[i].description = todoContent[i].value;
+    saveToLocalStorage(dataArray);
   }));
 };
 export default editData;
