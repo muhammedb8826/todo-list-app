@@ -1,10 +1,11 @@
-import './style.css';
+// import './style.css';
 import createData from './modules/createData.js';
 import readDataFromDb from './modules/readData.js';
 import saveToLocalStorage from './modules/saveToDb.js';
 import renderData from './modules/render.js';
 import editData from './modules/editData.js';
 import todoStatus from './modules/status.js';
+import removeData from './modules/removeData.js';
 
 export default class TodoApp {
   constructor() {
@@ -28,11 +29,6 @@ export default class TodoApp {
     });
   }
 
-  removeData(item) {
-    this.todoCollection = this.todoCollection.filter((todos, index) => item !== index);
-    this.todoCollection = this.todoCollection.map((todo, index) => ({ ...todo, index: index + 1 }));
-  }
-
   CreateData() {
     createData(this.todoCollection);
   }
@@ -44,7 +40,7 @@ export default class TodoApp {
 
     const trashIcon = document.querySelectorAll('.trash');
     trashIcon.forEach((todo, i) => todo.addEventListener('click', () => {
-      this.removeData(i);
+      removeData(this.todoCollection, i);
       saveToLocalStorage(this.todoCollection);
       this.ShowData();
     }));
@@ -53,7 +49,6 @@ export default class TodoApp {
     const clearCompletedBtn = document.querySelector('.clear-completed');
     clearCompletedBtn.addEventListener('click', () => {
       this.todoCollection = this.todoCollection.filter((task) => !task.completed);
-      saveToLocalStorage(this.todoCollection);
       this.ShowData();
     });
 
