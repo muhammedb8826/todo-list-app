@@ -1,7 +1,7 @@
 import saveToLocalStorage from './saveToDb.js';
 
-const refreshIcon = document.querySelector('.refresh-icon');
 const editData = (dataArray) => {
+  const refreshIcon = document.querySelector('.refresh-icon');
   refreshIcon.addEventListener('click', () => {
     window.location.reload();
   });

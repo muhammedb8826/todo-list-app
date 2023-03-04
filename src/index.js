@@ -1,4 +1,4 @@
-// import './style.css';
+import './style.css';
 import createData from './modules/createData.js';
 import readDataFromDb from './modules/readData.js';
 import saveToLocalStorage from './modules/saveToDb.js';
@@ -41,7 +41,6 @@ export default class TodoApp {
     const trashIcon = document.querySelectorAll('.trash');
     trashIcon.forEach((todo, i) => todo.addEventListener('click', () => {
       removeData(this.todoCollection, i);
-      saveToLocalStorage(this.todoCollection);
       this.ShowData();
     }));
 
