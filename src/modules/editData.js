@@ -1,11 +1,6 @@
 import saveToLocalStorage from './saveToDb.js';
 
-const refreshIcon = document.querySelector('.refresh-icon');
 const editData = (dataArray) => {
-  refreshIcon.addEventListener('click', () => {
-    window.location.reload();
-  });
-
   const todoLists = document.querySelectorAll('.list');
   const todoContent = document.querySelectorAll('.todo-content');
   const dragIcon = document.querySelectorAll('.drag-icon');
@@ -44,5 +39,10 @@ const editData = (dataArray) => {
     dataArray[i].description = todoContent[i].value;
     saveToLocalStorage(dataArray);
   }));
+
+  // const refreshIcon = document.querySelector('.refresh-icon');
+  // refreshIcon.addEventListener('click', () => {
+  //   window.location.reload();
+  // });
 };
 export default editData;

@@ -1,7 +1,7 @@
 import saveToLocalStorage from './saveToDb.js';
 
-const notificationIcon = document.querySelector('.badge');
 const todoStatus = (todo) => {
+  const notificationIcon = document.querySelector('.badge');
   const checkStatusInput = document.querySelectorAll('.todo-status');
   const todoContent = document.querySelectorAll('.todo-content');
   const filterednotification = todo.filter((data) => !data.completed);

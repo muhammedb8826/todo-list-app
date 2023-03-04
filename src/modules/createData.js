@@ -1,7 +1,7 @@
 import saveToLocalStorage from './saveToDb.js';
 
-const userInput = document.getElementById('todoInput');
 const createData = (todoCollection) => {
+  const userInput = document.getElementById('todoInput');
   const todo = { description: userInput.value, completed: false, index: todoCollection.length + 1 };
   todoCollection.push(todo);
   userInput.value = '';
