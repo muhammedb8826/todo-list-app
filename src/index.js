@@ -6,10 +6,12 @@ import renderData from './modules/render.js';
 import editData from './modules/editData.js';
 import todoStatus from './modules/status.js';
 import removeData from './modules/removeData.js';
+import clearCompleted from './modules/clearCompleted.js';
 
 export default class TodoApp {
   constructor() {
     this.todoCollection = readDataFromDb();
+    this.clearCompletedBtn = document.querySelector('.clear-completed');
     this.userInput = document.getElementById('todoInput');
     this.todoContainer = document.querySelector('.list-container');
     this.enterIcon = document.querySelector('.fa-arrow-turn-down');
@@ -44,13 +46,12 @@ export default class TodoApp {
       this.ShowData();
     }));
 
-    editData(this.todoCollection);
     const clearCompletedBtn = document.querySelector('.clear-completed');
     clearCompletedBtn.addEventListener('click', () => {
-      this.todoCollection = this.todoCollection.filter((task) => !task.completed);
-      this.ShowData();
+      clearCompleted(this.todoCollection);
     });
 
+    editData(this.todoCollection);
     todoStatus(this.todoCollection);
   }
 }

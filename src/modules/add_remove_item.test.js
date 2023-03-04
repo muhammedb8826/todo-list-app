@@ -2,6 +2,7 @@ import createData from './createData.js';
 import removeData from './removeData.js';
 import editData from './editData.js';
 import todoStatus from './status.js';
+import clearCompleted from './clearCompleted.js';
 
 describe('Testing add task', () => {
   afterEach(() => {
@@ -56,19 +57,87 @@ describe('Testing editing data ', () => {
   });
 
   test('should update completed status', () => {
-    const input = document.createElement('input');
-    input.setAttribute('id', 'todoInput');
-    input.value = 'Microverse';
-    document.body.appendChild(input);
-    const data = { description: input.value, completed: false, index: 1 };
-    createData([]);
+    document.body.innerHTML = `<section class="container">
+   <div class="demo">
+     <p class="demo-text">Today's To Do</p>
+     <span class="refresh-icon">
+       <i class='fa fa-refresh'></i>
+       <span class="badge"></span>
+     </span>
+   </div>
+   <div class="list-and-input-container">
+     <div class="input-and-icon">
+       <input
+         type="text"
+         placeholder="Add to your list..."
+         id="todoInput"
+         autofocus
+       />
+       <span class="icon"><i class='fa-solid fa-arrow-turn-down'></i></i></span>
+     </div>
+     <ul class="list-container">
+     <li class="list">
+        <input type="checkbox" class="todo-status"/>
+        <input type="text" class="todo-content" value="Microverse"/>
+        <button class="drag-icon">
+        <i class='drag fa fa-ellipsis-v'></i>
+        </button>
+        <button class="trash-icon">
+        <i class='trash fa-solid fa-trash-can'></i>
+        </button>
+    </li>
+     </ul>
+   </div>
+   <button class="clear-completed">Clear all completed</button>
+ </section>`;
+
+    localStorage.setItem('todoList', JSON.stringify([{ description: 'Microverse', completed: false, index: 1 }]));
+
     todoStatus(JSON.parse(window.localStorage.getItem('todoList')));
-    const todoStatus = document.createElement('checkbox');
-    todoStatus.setAttribute('class', 'todo-status');
-    todoStatus.checked = true;
-    document.body.appendChild(todoStatus);
-    data.description = todoStatus.completed;
-    window.localStorage.setItem('todoList', JSON.stringify([{ description: input.value, completed: todoStatus.completed, index: 1 }]));
-    expect(JSON.parse(window.localStorage.getItem('todoList'))).toEqual([data]);
+    const checkboxStatus = document.querySelector('.todo-status');
+
+    checkboxStatus.click();
+
+    expect(JSON.parse(window.localStorage.getItem('todoList'))).toEqual([{ description: 'Microverse', completed: true, index: 1 }]);
+  });
+
+  test('Should clear completed', () => {
+    document.body.innerHTML = `<section class="container">
+   <div class="demo">
+     <p class="demo-text">Today's To Do</p>
+     <span class="refresh-icon">
+       <i class='fa fa-refresh'></i>
+       <span class="badge"></span>
+     </span>
+   </div>
+   <div class="list-and-input-container">
+     <div class="input-and-icon">
+       <input
+         type="text"
+         placeholder="Add to your list..."
+         id="todoInput"
+         autofocus
+       />
+       <span class="icon"><i class='fa-solid fa-arrow-turn-down'></i></i></span>
+     </div>
+     <ul class="list-container">
+     <li class="list">
+        <input type="checkbox" class="todo-status"/>
+        <input type="text" class="todo-content" value="Microverse"/>
+        <button class="drag-icon">
+        <i class='drag fa fa-ellipsis-v'></i>
+        </button>
+        <button class="trash-icon">
+        <i class='trash fa-solid fa-trash-can'></i>
+        </button>
+    </li>
+     </ul>
+   </div>
+   <button class="clear-completed">Clear all completed</button>
+ </section>`;
+
+    localStorage.setItem('todoList', JSON.stringify([{ description: 'Microverse', completed: true, index: 1 }]));
+    clearCompleted(JSON.parse(localStorage.getItem('todoList')));
+    expect(JSON.parse(localStorage.getItem('todoList'))).toEqual([]);
   });
 });
