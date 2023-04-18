@@ -99,6 +99,8 @@ body {
   height: 100%;
   margin: 0.3rem;
   cursor: pointer;
+  border: none;
+  background-color: transparent;
 }
 
 .input-and-icon .icon:hover {

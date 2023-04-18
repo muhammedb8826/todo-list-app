@@ -12,9 +12,10 @@ const todoStatus = (todo) => {
       checkStatusInput[i].checked = true;
       todoContent[i].classList.add('completed');
     }
-
-    checkStatusInput[i].checked = false;
-    todoContent[i].classList.remove('completed');
+    if (!todo[i].completed) {
+      checkStatusInput[i].checked = false;
+      todoContent[i].classList.remove('completed');
+    }
   }
 
   for (let i = 0; i < todo.length; i += 1) {
