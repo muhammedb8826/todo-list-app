@@ -50,7 +50,9 @@ export default class TodoApp {
 
     const clearCompletedBtn = document.querySelector('.clear-completed');
     clearCompletedBtn.addEventListener('click', () => {
-      clearCompleted(this.todoCollection);
+      const newTodo = clearCompleted(this.todoCollection);
+      this.todoCollection = newTodo;
+      this.ShowData();
     });
 
     editData(this.todoCollection);
