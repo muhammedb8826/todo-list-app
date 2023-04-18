@@ -1,9 +1,10 @@
+import renderData from './render.js';
 import saveToLocalStorage from './saveToDb.js';
 
-const clearCompleted = (todo) => {
-  todo = todo.filter((task) => !task.completed);
-  saveToLocalStorage(todo);
-  window.location.reload();
+const clearCompleted = (todoCollection) => {
+  const filteredData = todoCollection.filter((task) => !task.completed);
+  renderData(filteredData);
+  saveToLocalStorage(filteredData);
 };
 
 export default clearCompleted;

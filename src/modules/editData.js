@@ -39,10 +39,5 @@ const editData = (dataArray) => {
     dataArray[i].description = todoContent[i].value;
     saveToLocalStorage(dataArray);
   }));
-
-  // const refreshIcon = document.querySelector('.refresh-icon');
-  // refreshIcon.addEventListener('click', () => {
-  //   window.location.reload();
-  // });
 };
 export default editData;

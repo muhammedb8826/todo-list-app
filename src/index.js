@@ -13,8 +13,8 @@ export default class TodoApp {
     this.todoCollection = readDataFromDb();
     this.clearCompletedBtn = document.querySelector('.clear-completed');
     this.userInput = document.getElementById('todoInput');
-    this.todoContainer = document.querySelector('.list-container');
     this.enterIcon = document.querySelector('.fa-arrow-turn-down');
+    this.refreshIcon = document.querySelector('.refresh-icon');
     this.userInput.addEventListener('keypress', (event) => {
       if (event.key === 'Enter') {
         event.preventDefault();
@@ -29,6 +29,10 @@ export default class TodoApp {
       saveToLocalStorage(this.todoCollection);
       this.ShowData();
     });
+
+    this.refreshIcon.addEventListener('click', () => {
+      window.location.reload();
+    });
   }
 
   CreateData() {
@@ -36,13 +40,11 @@ export default class TodoApp {
   }
 
   ShowData() {
-    this.todoContainer.innerHTML = this.todoCollection.map(
-      (todo) => renderData(todo.description),
-    ).join('');
-
+    renderData(this.todoCollection);
     const trashIcon = document.querySelectorAll('.trash');
     trashIcon.forEach((todo, i) => todo.addEventListener('click', () => {
-      removeData(this.todoCollection, i);
+      const newTodo = removeData(this.todoCollection, i);
+      this.todoCollection = newTodo;
       this.ShowData();
     }));
 
