@@ -21,11 +21,6 @@ https://github.com/muhammedb8826/todo-list-app/assets/115731485/62d4d734-b573-4d
 
 ## 🛠 Built With <a name="built-with"></a>
 
-- HTML 
-- CSS
-- JavaScript
-- Webpack
-
 <details>
   <summary>HTML</summary>
   <ul>
