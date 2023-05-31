@@ -62,7 +62,15 @@ After you're finished please remove all the comments and instructions!
 
 # 📖 To-Do List App <a name="about-project"></a>
 
--In this project I am going to build a To-Do List App: It is useful as Writing your daily tasks on a list can help you increase productivity and decrease stress. To-do lists enable you to segment your goals into achievable activities and complete large projects by breaking them into smaller assignments. Recording tasks can allow you to better manage your time and encourages you to achieve more throughout your day.
+- In this project I am going to build a To-Do List App: It is useful as Writing your daily tasks on a list can help you increase productivity and decrease stress. To-do lists enable you to segment your goals into achievable activities and complete large projects by breaking them into smaller assignments. Recording tasks can allow you to better manage your time and encourages you to achieve more throughout your day.
+
+Below is a video demo of the project:
+
+
+https://github.com/muhammedb8826/todo-list-app/assets/115731485/62d4d734-b573-4db5-b771-9663777cf229
+
+
+
 
 **To-Do List App** is a static page that has been
 
@@ -128,7 +136,7 @@ After you're finished please remove all the comments and instructions!
 
 - you can see the project live [using this link](https://muhammedb8826.github.io/todo-list-app/dist/)
 
-> Link to github repository.
+Link to github repository.
 
 - [To-Do list app](https://github.com/muhammedb8826/todo-list-app)
 
@@ -203,10 +211,8 @@ run:    ```
 
 ## 🔭 Future Features <a name="future-features"></a>
 
-> Some features are coming soon.
+Some features are coming soon.
 
-- [ ] **Interactive list**
-- [ ] **Add and Remove items**
 - [ ] **Drag and Drop**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -232,8 +238,6 @@ If you like this project give a ⭐️
 <!-- ACKNOWLEDGEMENTS -->
 
 ## 🙏 Acknowledgments <a name="acknowledgements"></a>
-
-> Give credit to everyone who inspired your codebase.
 
 I would like to thank Microverse for teaching me how to code
 
