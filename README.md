@@ -1,62 +1,7 @@
-<a name="readme-top"></a>
 
-<!--
-HOW TO USE:
-This is an example of how you may give instructions on setting up your project locally.
+# Muhammed B | To-Do List project
 
-Modify this file to match your project and remove sections that don't apply.
 
-REQUIRED SECTIONS:
-- Table of Contents
-- About the Project
-  - Built With
-  - Live Demo
-- Getting Started
-- Authors
-- Future Features
-- Contributing
-- Show your support
-- Acknowledgements
-- License
-
-OPTIONAL SECTIONS:
-- FAQ
-
-After you're finished please remove all the comments and instructions!
--->
-
-<div align="center">
-  <!-- You are encouraged to replace this logo with your own! Otherwise you can also remove it. 
-  <img src="./images/moon.png" alt="logo" width="140"  height="auto" /> -->
-  <br/>
-
-  <h3><b>Muhammed B | To-Do List project</b></h3>
-
-</div>
-
-<!-- TABLE OF CONTENTS -->
-
-# 📗 Table of Contents
-
-- [📖 About the Project](#about-project)
-  - [🛠 Built With](#built-with)
-    - [Tech Stack](#tech-stack)
-    - [Key Features](#key-features)
-  - [🚀 Live Demo](#live-demo)
-- [💻 Getting Started](#getting-started)
-  - [Setup](#setup)
-  - [Prerequisites](#prerequisites)
-  - [Install](#install)
-  - [Usage](#usage)
-  - [Run tests](#run-tests)
-  - [Deployment](#triangular_flag_on_post-deployment)
-- [👥 Authors](#authors)
-- [🔭 Future Features](#future-features)
-- [🤝 Contributing](#contributing)
-- [⭐️ Show your support](#support)
-- [🙏 Acknowledgements](#acknowledgements)
-- [❓ FAQ (OPTIONAL)](#faq)
-- [📝 License](#license)
 
 <!-- PROJECT DESCRIPTION -->
 
@@ -76,17 +21,10 @@ https://github.com/muhammedb8826/todo-list-app/assets/115731485/62d4d734-b573-4d
 
 ## 🛠 Built With <a name="built-with"></a>
 
-- HTML, CSS, JS
-- Git, Github
-- VSCode
-
-### Tech Stack <a name="tech-stack"></a>
-
-> HTML,
-> CSS,
-> Javascript,
-> Git,
-> Github
+- HTML 
+- CSS
+- JavaScript
+- Webpack
 
 <details>
   <summary>HTML</summary>
@@ -99,6 +37,20 @@ https://github.com/muhammedb8826/todo-list-app/assets/115731485/62d4d734-b573-4d
   <summary>CSS</summary>
   <ul>
     <li><a href="https://www.w3schools.com/css/">CSS Course</a></li>
+  </ul>
+</details>
+
+<details>
+  <summary>JavaScript</summary>
+  <ul>
+    <li><a href="https://www.w3schools.com/js/">JavaScript Course</a></li>
+  </ul>
+</details>
+
+<details>
+  <summary>Weboack</summary>
+  <ul>
+    <li><a href="https://webpack.js.org/">Webpack</a></li>
   </ul>
 </details>
 
@@ -120,7 +72,7 @@ https://github.com/muhammedb8826/todo-list-app/assets/115731485/62d4d734-b573-4d
 
 ### Key Features <a name="key-features"></a>
 
-> Features I used in this project mainly:
+Features I used in this project mainly:
 
 - **HTML**
 - **CSS**
