@@ -1,8 +1,3 @@
-
-# Muhammed B | To-Do List project
-
-
-
 <!-- PROJECT DESCRIPTION -->
 
 # 📖 To-Do List App <a name="about-project"></a>
