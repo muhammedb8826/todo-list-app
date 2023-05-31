@@ -154,10 +154,8 @@ git clone https://github.com/muhammedb8826/todo-list-app.git
 
 - NodeJS
 - Browser
-- npm
-- webpack
+- Have git installed
 
-In order to run this project you need:
 
 ### Setup
 
@@ -173,24 +171,13 @@ Install project dependencies in this project with:
 
 npm install
 
-### Usage
-
-To run the project, use npm start and open the project with live server and visit http://localhost:8080/
-
-Open in browser
-http://localhost:8080/
-
 ### Run tests
 
 After pushing the changes on github, merge your pull request and let github action process changes.
 
 ### Deployment
 
-Check for the tests when you generate a pull request and fix errors, if any.
-For stylelint errors run:<code>sudo npx stylelint "\*_/_.{css,scss}" --fix</code> for automatic fix and for eslint 
-run:    ```
-        npx eslint . --fix
-       ```
+- Deploy on any web server that can host a Node.js runtime environment
    
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
